@@ -47,11 +47,11 @@ if __name__ == '__main__':
     b = Node(6)
     b.next = Node(7)
     b.next.next = Node(8)
-    # b.next.next = a.next.next.next
+    b.next.next = a.next.next.next
     # b.next.next.next = a.next.next.next
     b.next.next.next = Node(9)
     
-    result = find_first_common_node(a, b)
+    result = find_first_common_node2(a, b)
     if result:
       print(f"找到公共 Node: {result}, value: {result.value}")
     else:
