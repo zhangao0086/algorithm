@@ -16,7 +16,6 @@ def heap_sort(nums: [int]):
         length -= 1
     print(nums)
 
-
 # 构建大顶堆，将元素下沉
 def down_adjust(nums: [int], parent_index: int, length: int):
     temp = nums[parent_index]
@@ -32,7 +31,6 @@ def down_adjust(nums: [int], parent_index: int, length: int):
         parent_index = child_index
         child_index = child_index * 2 + 1
     nums[parent_index] = temp
-
 
 if __name__ == '__main__':
     heap_sort([4,12,6,9,0,-1,23,1,7])

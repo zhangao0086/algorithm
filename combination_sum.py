@@ -7,7 +7,7 @@ from typing import List
 
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        dp = [[[]]] + [[] for length in range(target)]
+        dp = [[[]]] + [[] for _ in range(target)]
         for candidate in candidates:
             for index in range(candidate, target + 1):
                 position = index - candidate
