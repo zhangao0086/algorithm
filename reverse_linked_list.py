@@ -12,20 +12,21 @@ class ListNode:
 
 class Solution:
     # def reverseList(self, head: ListNode) -> ListNode:
-    #     pre, cur = None, head
-    #     while cur:
-    #         next = cur.next
-    #         cur.next, pre, cur = pre, cur, next
+    #     pre = None
+    #     while head:
+    #         next = head.next
+    #         head.next, pre, head = pre, head, next
 
     #     return pre
 
     def reverseList(self, head: ListNode) -> ListNode:
-        pre, cur = None, None
+        pre = None
         while head:
             next = head.next
             head.next = pre
             pre = head
             head = next
+
         return pre
 
 if __name__ == '__main__':
