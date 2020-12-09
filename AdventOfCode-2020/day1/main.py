@@ -3,22 +3,13 @@
 
 __author__ = "Bannings"
 
-import functools, os
+import os
 
-def calc(target: int, count: int):
-    nums = []
-    with open(os.path.join(os.path.dirname(__file__), "input.txt"), "r+") as file:
-            for line in file.readlines():
-                nums.append(int(line))
-    nums.sort()
-    ans = sum_of_count(nums, 0, len(nums)-1, target, count)
-    return ans
-
-def sum_of_count(nums: [int], begin: int, end: int, target: int, count: int) -> [int]:
-    if count == 2: 
+def n_sum(nums: [int], begin: int, end: int, target: int, n: int) -> [int]:
+    if n == 2: 
         return search(nums, begin, end, target)
     for i in range(begin, end):
-        if nums[i] + sum(ans := sum_of_count(nums, i + 1, end, target - nums[i], count - 1)) == target and len(ans)+1 == count:
+        if nums[i] + sum(ans := n_sum(nums, i + 1, end, target - nums[i], n - 1)) == target and len(ans)+1 == n:
             return [nums[i]] + ans
     return []
 
@@ -36,7 +27,13 @@ def search(nums: [int], begin: int, end: int, target: int) -> [int, int]:
     return []
 
 if __name__ == '__main__':
-    print(calc(2020, 2))
-    print(calc(2020, 3))
-    print(calc(2020, 4))
-    print(calc(2020, 5))
+    nums = []
+    with open(os.path.join(os.path.dirname(__file__), "input.txt"), "r") as file:
+            for line in file.readlines():
+                nums.append(int(line))
+    nums.sort()
+
+    print(n_sum(nums, 0, len(nums)-1, 2020, 2))
+    print(n_sum(nums, 0, len(nums)-1, 2020, 3))
+    print(n_sum(nums, 0, len(nums)-1, 2020, 4))
+    print(n_sum(nums, 0, len(nums)-1, 2020, 5))
