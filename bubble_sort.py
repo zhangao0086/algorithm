@@ -7,7 +7,7 @@ __author__ = "Bannings"
 def bubble_sort(nums: [int]):
     iterative = 0
     sorted_border = len(nums) - 1
-    for i in range(sorted_border):
+    for _ in range(sorted_border):
         sorted = True  # 如果是有序的，则直接跳过
         for j in range(0, sorted_border):
             iterative += 1
