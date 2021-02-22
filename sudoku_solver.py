@@ -8,7 +8,7 @@ import collections
 
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:        
-        def backtrace(index) -> bool:
+        def backtrack(index) -> bool:
             if index == len(empty): return True
             i, j = empty[index]
             for num in rows[i] & columns[j] & boxes[i//3*3+j//3]:
@@ -16,7 +16,7 @@ class Solution:
                 columns[j].remove(num)
                 boxes[i//3*3+j//3].remove(num)
                 board[i][j] = str(num)
-                if backtrace(index+1): return True
+                if backtrack(index+1): return True
                 rows[i].add(num)
                 columns[j].add(num)
                 boxes[i//3*3+j//3].add(num)
@@ -35,7 +35,7 @@ class Solution:
                     boxes[i//3*3+j//3].remove(num)
                 else:
                     empty.append((i, j))
-        backtrace(0)
+        backtrack(0)
 
 if __name__ == '__main__':
     board = [["5","3",".",".","7",".",".",".","."],
