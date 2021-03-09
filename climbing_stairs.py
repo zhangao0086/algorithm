@@ -6,17 +6,17 @@ __author__ = "Bannings"
 class Solution:
 
     # 解法一: x = f(x-1) + f(x-2)
-    def climbStairs(self, n: int) -> int:
-        if n <= 1: return 1
-        return self.climbStairs(n-1) + self.climbStairs(n-2)
+    # def climbStairs(self, n: int) -> int:
+    #     if n <= 1: return 1
+    #     return self.climbStairs(n-1) + self.climbStairs(n-2)
 
     # 解法二: 备忘录
-    def climbStairs(self, n: int) -> int:
-        dp = {}
-        dp[0], dp[1], dp[2] = 1, 1, 2
-        for i in range(3, n+1):
-            dp[i] = dp[i-1] + dp[i-2]
-        return dp[n]
+    # def climbStairs(self, n: int) -> int:
+    #     dp = {}
+    #     dp[0], dp[1], dp[2] = 1, 1, 2
+    #     for i in range(3, n+1):
+    #         dp[i] = dp[i-1] + dp[i-2]
+    #     return dp[n]
 
     # 解法三: 根据前两结果顺序递推
     def climbStairs(self, n: int) -> int:
