@@ -18,7 +18,6 @@ def create_binary_tree(list: [int]) -> TreeNode:
     else:
         return None
 
-
 if __name__ == '__main__':
     root = create_binary_tree([3, 2, 9, None, None, 10, None, None, 8, None, 4])
     print(root)
