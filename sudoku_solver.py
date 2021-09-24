@@ -4,7 +4,6 @@
 __author__ = "Bannings"
 
 from typing import List
-import collections
 
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:        
@@ -48,4 +47,3 @@ if __name__ == '__main__':
         [".",".",".","4","1","9",".",".","5"],
         [".",".",".",".","8",".",".","7","9"]]
     Solution().solveSudoku(board)
-    print(1)
