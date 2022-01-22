@@ -3,8 +3,7 @@
 
 __author__ = "Bannings"
 
-
-def bubble_sort(nums: [int]):
+def bubble_sort(nums: list[int]):
     iterative = 0
     sorted_border = len(nums) - 1
     for _ in range(sorted_border):
