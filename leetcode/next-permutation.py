@@ -10,40 +10,41 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        length = len(nums)
-        if length <= 1: return
-        
+        n = len(nums)
+        if n <= 1: return
+
+        index = None
+        for i in range(n-2, -1, -1):
+            if nums[i] < nums[i+1]:
+                index = i
+                break
+
         def reverse(start: int, end: int):
             """
             反转指定的区间
             """
             while start < end:
                 nums[start], nums[end] = nums[end], nums[start]
-                start += 1
-                end -= 1
-        
-        index = None
-        for i in range(length-2, -1, -1):
-            if nums[i] < nums[i+1]:
-                index = i
-                break
+                start, end = start+1, end-1
 
-        # 降序时，反转成升序
         if index is None:
-            reverse(0, length - 1)
-            return
-
-        smallest = index + 1
-        for i in range(smallest+1, length):
-            if nums[i] < nums[index]:
+            """
+            当数组完全是降序时，反转成升序
+            """
+            return reverse(0, n-1)
+        
+        smallest = index+1
+        for i in range(smallest+1, n):
+            if nums[i] <= nums[index]:
                 break
             else:
-                smallest = i                
-        
+                smallest = i
+
         nums[index], nums[smallest] = nums[smallest], nums[index]
-        reverse(index + 1, length - 1)
+        reverse(index+1, n-1)
 
 if __name__ == '__main__':
-    arr = [2,3,1]
+    # arr = [2,3,1]
+    arr = [1,5,1]
     Solution().nextPermutation(arr)
     print(arr)
