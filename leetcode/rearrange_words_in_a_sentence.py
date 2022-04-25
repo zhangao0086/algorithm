@@ -34,7 +34,7 @@ class Solution:
 
     # 基于归并排序
     def arrangeWords(self, text: str) -> str:
-        def merge_sort(words:[]) -> []:
+        def merge_sort(words: list) -> list:
             half = len(words) // 2
             if half:
                 left, right = merge_sort(words[:half]), merge_sort(words[half:])
