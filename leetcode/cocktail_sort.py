@@ -3,8 +3,9 @@
 
 __author__ = "Bannings"
 
+from typing import List
 
-def cocktail_sort(nums: [int]):
+def cocktail_sort(nums: List[int]):
     iterative = 0
     for i in range(int(len(nums) / 2)):
         sorted = True
@@ -13,8 +14,7 @@ def cocktail_sort(nums: [int]):
             if nums[j] > nums[j + 1]:
                 sorted = False
                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
-        if sorted:
-            break
+        if sorted: return
 
         for j in range(len(nums) - 2 - i, i, -1):
             iterative += 1
@@ -22,12 +22,7 @@ def cocktail_sort(nums: [int]):
                 sorted = False
                 nums[j], nums[j - 1] = nums[j - 1], nums[j]
 
-        if sorted:
-            break
-
-    print(iterative)
-    print(nums)
-
+        if sorted: return
 
 if __name__ == '__main__':
     cocktail_sort([7,3,123,31,9,0, 124,125,126,-1])
