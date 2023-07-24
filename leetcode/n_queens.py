@@ -5,7 +5,7 @@ __author__ = "Bannings"
 
 from typing import List
 
-class Solution:
+# class Solution:
 
     # # 原始
     # def solveNQueens(self, n: int) -> List[List[str]]:
@@ -68,6 +68,8 @@ class Solution:
 
     #     return ans
 
+class Solution:
+    
     # 代码优化
     def solveNQueens(self, n: int) -> List[List[str]]:
         if n == 0: return [[]]
